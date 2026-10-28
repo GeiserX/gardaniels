@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Gardaniel's · Propuestas de diseño</title>
+<link rel="icon" href="assets/marca/logo-mandala.png">
+<style>
+  :root { color-scheme: light dark; --fg: #17301f; --bg: #f7faf6; --line: #c9d8cc; }
+  @media (prefers-color-scheme: dark) { :root { --fg: #e4efe6; --bg: #101a13; --line: #2c4233; } }
+  body { margin: 0; font: 17px/1.5 system-ui, sans-serif; color: var(--fg); background: var(--bg); }
+  main { max-width: 68rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+  header { display: flex; gap: 1rem; align-items: center; }
+  header img { width: 64px; height: 64px; border-radius: 50%; background: #fff; }
+  h1 { font-size: 1.6rem; margin: 0; }
+  p { max-width: 40rem; }
+  ul { list-style: none; padding: 0; display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); }
+  a { color: inherit; }
+  li a { display: block; text-decoration: none; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  li a:focus-visible { outline: 3px solid #3d8b4f; outline-offset: 3px; }
+  li img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top; border-bottom: 1px solid var(--line); }
+  li span { display: block; padding: .9rem 1rem; font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <img src="assets/marca/logo-mandala.png" alt="" width="64" height="64">
+    <h1>Gardaniel's: tres propuestas para la web nueva</h1>
+  </header>
+  <p>Dani, aquí tienes tres diseños con el mismo contenido. Ábrelos también en el móvil, que es donde te van a ver la mayoría de tus clientes, y dinos cuál te gusta más. Las fotos son provisionales hasta que nos mandes las de tus trabajos.</p>
+  <ul>
+    <li><a href="propuestas/1/"><img src="propuestas/1/capturas/movil-claro.png" alt="Captura de la propuesta 1"><span>Propuesta 1</span></a></li>
+    <li><a href="propuestas/2/"><img src="propuestas/2/capturas/movil-claro.png" alt="Captura de la propuesta 2"><span>Propuesta 2</span></a></li>
+    <li><a href="propuestas/3/"><img src="propuestas/3/capturas/movil-claro.png" alt="Captura de la propuesta 3"><span>Propuesta 3</span></a></li>
+  </ul>
+</main>
+</body>
+</html>

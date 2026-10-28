@@ -3,8 +3,8 @@
 En cumplimiento del artículo 10 de la Ley 34/2002, de servicios de la sociedad de la información y de comercio electrónico (LSSI-CE), estos son los datos del titular de gardaniels.com:
 
 - **Titular:** Daniel Habacuc Baños Martínez (Gardaniel's)
-- **NIF:** [NIF] (confirmar)
-- **Domicilio:** [Domicilio], Cartagena (Murcia) (confirmar)
+- **NIF:** [NIF]
+- **Domicilio:** [Domicilio], Cartagena (Murcia)
 - **Teléfono:** +34 677 768 231
 - **Correo:** info@gardaniels.com
 
@@ -14,7 +14,7 @@ Esta web informa de los servicios de jardinería y mantenimiento de piscinas de 
 
 ## Propiedad intelectual
 
-Los textos, el logotipo y las fotografías de trabajos son de Gardaniel's. El código de la web es abierto y se publica con licencia MIT.
+Los textos, el logotipo y las fotografías de trabajos propios son de Gardaniel's. Las demás fotografías son de sus autores y se usan con su licencia; los créditos están en el código de la web. El código de la web es abierto y se publica con licencia MIT.
 
 ## Responsabilidad
 

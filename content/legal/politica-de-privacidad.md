@@ -10,7 +10,7 @@ Esta web no tiene formularios ni recoge datos por sí misma. Si nos llamas, nos 
 
 ## Base legal
 
-Tu consentimiento al contactarnos y, si nos contratas, la ejecución del contrato y nuestras obligaciones fiscales.
+Atender tu petición de información o presupuesto (medidas precontractuales, art. 6.1.b del RGPD) y, si nos contratas, la ejecución del contrato y el cumplimiento de nuestras obligaciones fiscales (art. 6.1.c).
 
 ## Cuánto tiempo
 

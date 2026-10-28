@@ -67,3 +67,5 @@
 
 # sync.remote: "git+ssh://git@beads-tracker/giteaer/gardaniels-beads.git"
 dolt.auto-commit: on
+sync:
+    remote: "git+ssh://git@beads-tracker/giteaer/gardaniels-beads.git"

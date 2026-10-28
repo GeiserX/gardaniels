@@ -1,0 +1,474 @@
+/* Gardaniel's · propuesta 3 «Jardín y agua» */
+
+@font-face {
+  font-family: "Archivo";
+  src: url("fonts/archivo-latin-wdth.woff2") format("woff2-variations"),
+       url("fonts/archivo-latin-wdth.woff2") format("woff2");
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --cal: #F6F7F4;
+  --pino: #17302A;
+  --pino-suave: #43564F;
+  --hoja: #3D7520;
+  --hoja-logo: #7DB53A;
+  --agua: #0B6874;
+  --agua-clara: #DDF1F2;
+  --grava: #E2E5E0;
+  --sobre-boton: #FFFFFF;
+  --plato-logo: transparent;
+
+  --margen: clamp(20px, 5vw, 72px);
+  --ancho: 1240px;
+  --costura: 6px;
+  --separador: linear-gradient(var(--grava), var(--grava)) var(--margen) 0 / calc(100% - 2 * var(--margen)) 1px no-repeat;
+
+  --t-1: 0.8rem;
+  --t0: 1.125rem;
+  --t1: 1.406rem;
+  --t2: 1.758rem;
+  --t3: 2.197rem;
+  --t4: 2.747rem;
+  --t5: 3.433rem;
+  --t6: 4.292rem;
+
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cal: #0F1C19;
+    --pino: #E6EDE9;
+    --pino-suave: #AFC0B9;
+    --hoja: #9BD067;
+    --agua: #62CDD8;
+    --agua-clara: #123A3E;
+    --grava: #1B2B27;
+    --sobre-boton: #0F1C19;
+    --plato-logo: #F6F7F4;
+  }
+  img:not([src$=".png"]) { filter: brightness(0.9); }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--cal);
+  color: var(--pino);
+  font-family: "Archivo", system-ui, sans-serif;
+  font-size: var(--t0);
+  line-height: 1.6;
+  font-stretch: 100%;
+  font-weight: 400;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-stretch: 125%;
+  font-weight: 640;
+  line-height: 1.08;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+}
+
+p { margin: 0 0 1em; max-width: 62ch; }
+
+a { color: var(--hoja); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 3px solid var(--agua);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.saltar {
+  position: absolute;
+  left: var(--margen);
+  top: -100px;
+  padding: 0.6em 1em;
+  background: var(--pino);
+  color: var(--cal);
+  z-index: 50;
+}
+.saltar:focus { top: 12px; }
+
+/* Botones */
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55em;
+  min-height: 48px;
+  padding: 0.7em 1.3em;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  font-weight: 600;
+  font-stretch: 110%;
+  font-size: 1rem;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.boton svg { width: 1.15em; height: 1.15em; fill: currentColor; flex: none; }
+.boton-hoja { background: var(--hoja); color: var(--sobre-boton); }
+.boton-agua { background: var(--agua); color: var(--sobre-boton); }
+.boton-linea { border-color: currentColor; color: var(--pino); }
+.boton:hover { filter: brightness(1.08); }
+.boton-linea:hover { background: var(--grava); filter: none; }
+
+/* Cabecera */
+
+.cabecera {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  max-width: calc(var(--ancho) + 2 * var(--margen));
+  margin: 0 auto;
+  padding: 18px var(--margen);
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--pino);
+  text-decoration: none;
+  margin-right: auto;
+}
+.marca-logo { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: var(--plato-logo); }
+.marca-logo img { width: 44px; height: 44px; }
+.marca-texto { display: flex; flex-direction: column; line-height: 1.1; }
+.marca-nombre { font-stretch: 125%; font-weight: 680; font-size: 1.3rem; letter-spacing: -0.01em; }
+.marca-lema { font-size: var(--t-1); color: var(--pino-suave); }
+
+.menu { display: flex; gap: 1.6rem; }
+.menu a { color: var(--pino); text-decoration: none; font-weight: 500; }
+.menu a:hover { color: var(--hoja); text-decoration: underline; }
+
+/* Portada: la costura */
+
+.portada { max-width: calc(var(--ancho) + 2 * var(--margen)); margin: 0 auto; padding: 0 var(--margen); }
+
+.costura {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--costura);
+  background: var(--hoja-logo);
+  height: clamp(300px, 58vh, 600px);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.mitad { position: relative; margin: 0; overflow: hidden; background: var(--cal); }
+.mitad img { width: 100%; height: 100%; object-fit: cover; }
+.mitad-jardin img { object-position: 50% 30%; }
+.mitad figcaption {
+  position: absolute;
+  bottom: 0;
+  padding: 0.45em 0.9em 0.4em;
+  background: var(--cal);
+  color: var(--pino);
+  font-stretch: 125%;
+  font-weight: 620;
+  font-size: var(--t1);
+  line-height: 1.2;
+}
+.mitad-jardin figcaption { right: 0; border-top-left-radius: 8px; color: var(--hoja); }
+.mitad-agua figcaption { left: 0; border-top-right-radius: 8px; color: var(--agua); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .mitad-jardin { animation: abrir-izquierda 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  .mitad-agua { animation: abrir-derecha 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  @keyframes abrir-izquierda { from { clip-path: inset(0 0 0 100%); } to { clip-path: inset(0 0 0 0); } }
+  @keyframes abrir-derecha { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+}
+
+.portada-texto {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: 1.5rem clamp(32px, 4vw, 64px);
+  align-items: start;
+  padding: clamp(28px, 4vw, 56px) 0 clamp(40px, 6vw, 80px);
+}
+.portada h1 { font-size: clamp(2.2rem, 5.4vw, var(--t6)); }
+.portada-pie { padding-top: 0.6rem; }
+.entrada { font-size: 1.2rem; line-height: 1.55; margin: 0 0 1.5rem; color: var(--pino-suave); }
+.acciones { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+/* Secciones */
+
+.seccion {
+  max-width: calc(var(--ancho) + 2 * var(--margen));
+  margin: 0 auto;
+  padding: clamp(48px, 6vw, 88px) var(--margen);
+}
+.seccion > h2, .contacto-intro h2 { font-size: clamp(2rem, 4.6vw, var(--t5)); margin-bottom: clamp(28px, 4vw, 56px); }
+
+/* Servicios */
+
+.mundo-titulo { font-size: var(--t2); margin-bottom: 1.5rem; }
+.mundo-jardin .mundo-titulo { color: var(--hoja); }
+.mundo-agua .mundo-titulo { color: var(--agua); }
+
+.lista-servicios {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 clamp(32px, 5vw, 80px);
+}
+.servicio { padding: 1.5rem 0 2.25rem; border-top: 2px solid var(--grava); }
+.mundo-jardin .servicio { border-top-color: color-mix(in srgb, var(--hoja) 35%, transparent); }
+.servicio h4 { font-size: var(--t1); margin-bottom: 0.75rem; }
+.servicio p { font-size: 1.0625rem; }
+
+.ventajas { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.35rem; font-weight: 550; font-size: 0.97rem; }
+.ventajas li { display: flex; align-items: baseline; gap: 0.5em; }
+.ventajas li::before { content: ""; width: 0.55em; height: 0.55em; border-radius: 50%; background: var(--hoja); flex: none; transform: translateY(-0.05em); }
+.mundo-agua .ventajas li::before { background: var(--agua); }
+
+.mundo-agua {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: var(--costura);
+  margin-top: clamp(32px, 5vw, 64px);
+  background: var(--agua-clara);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.mundo-agua-texto { padding: clamp(24px, 4vw, 56px); }
+.mundo-agua .servicio { border-top-color: color-mix(in srgb, var(--agua) 35%, transparent); padding-bottom: 0; }
+.mundo-agua-foto { width: 100%; height: 100%; object-fit: cover; min-height: 280px; }
+
+/* Conócenos */
+
+.conocenos {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: center;
+  background: var(--separador);
+}
+.conocenos h2 { font-size: clamp(2rem, 4.6vw, var(--t5)); margin-bottom: 1.5rem; }
+.firma { color: var(--pino-suave); font-size: 1rem; }
+.conocenos-valores { display: flex; align-items: center; gap: clamp(20px, 3vw, 40px); }
+.sello { flex: none; display: grid; place-items: center; width: clamp(110px, 13vw, 176px); aspect-ratio: 1; border-radius: 50%; background: var(--plato-logo); }
+.sello img { width: 88%; height: auto; }
+.valores { list-style: none; margin: 0; padding: 0; font-stretch: 125%; font-weight: 620; font-size: var(--t2); line-height: 1.35; }
+.valores { color: var(--hoja); }
+
+/* Cómo trabajamos: la línea de agua une los pasos */
+
+.pasos-seccion { background: var(--separador); }
+.pasos {
+  list-style: none;
+  counter-reset: paso;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.pasos::before {
+  content: "";
+  position: absolute;
+  left: 28px;
+  right: 0;
+  top: 27px;
+  border-top: 2px solid var(--agua);
+}
+.pasos li { counter-increment: paso; position: relative; padding-top: 80px; padding-right: 1rem; font-size: 1.15rem; line-height: 1.45; }
+.pasos li::before {
+  content: counter(paso);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--cal);
+  border: 2px solid var(--agua);
+  color: var(--agua);
+  font-stretch: 125%;
+  font-weight: 650;
+  font-size: var(--t1);
+}
+.pasos strong { font-weight: 680; font-stretch: 110%; }
+
+/* Opiniones */
+
+.opiniones { background: var(--separador); }
+.citas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 4vw, 64px); }
+.cita { margin: 0; }
+.cita blockquote { margin: 0 0 1rem; }
+.cita p { font-size: var(--t1); line-height: 1.45; margin: 0; }
+.cita figcaption { color: var(--hoja); font-weight: 620; font-stretch: 115%; }
+
+/* Trabajos */
+
+.trabajos { background: var(--separador); }
+.mosaico {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1.4fr;
+  grid-template-rows: repeat(3, clamp(140px, 17vw, 240px));
+  grid-template-areas:
+    "a a b"
+    "a a b"
+    "c d e";
+  gap: var(--costura);
+}
+.mosaico img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
+.m-a { grid-area: a; }
+.m-b { grid-area: b; }
+.m-c { grid-area: c; }
+.m-d { grid-area: d; }
+.m-e { grid-area: e; }
+
+/* Contacto */
+
+.contacto {
+  max-width: calc(var(--ancho) + 2 * var(--margen));
+  margin: 0 auto;
+  padding: clamp(48px, 6vw, 88px) var(--margen) clamp(40px, 5vw, 72px);
+  background: var(--separador);
+}
+.contacto-intro p { font-size: var(--t1); line-height: 1.5; color: var(--pino-suave); }
+.contacto-mitades {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--costura);
+  margin-top: clamp(28px, 4vw, 48px);
+  background: var(--hoja-logo);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.contacto-mitad { padding: clamp(24px, 4vw, 56px); }
+.contacto-llamar { background: var(--cal); box-shadow: inset 0 0 0 1px var(--grava); border-radius: 8px 0 0 8px; }
+.contacto-escribir { background: var(--agua-clara); }
+.contacto-mitad h3 { font-size: var(--t2); margin-bottom: 1rem; }
+.contacto-llamar h3 { color: var(--hoja); }
+.contacto-escribir h3 { color: var(--agua); }
+.numero {
+  display: block;
+  font-stretch: 125%;
+  font-weight: 660;
+  font-size: clamp(2rem, 5vw, var(--t5));
+  line-height: 1.05;
+  color: var(--pino);
+  text-decoration: none;
+  margin-bottom: 0.75rem;
+  white-space: nowrap;
+}
+.numero:hover { color: var(--hoja); }
+.contacto-escribir .boton { margin-bottom: 1.25rem; }
+.correo { color: var(--agua); font-weight: 600; }
+
+/* Pie */
+
+.pie {
+  max-width: calc(var(--ancho) + 2 * var(--margen));
+  margin: 0 auto;
+  padding: 28px var(--margen) 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2rem;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: var(--pino-suave);
+}
+.pie p { margin: 0; }
+.pie nav { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
+.pie a { color: var(--pino-suave); }
+
+/* Barra fija de contacto en móvil */
+
+.barra-movil { display: none; }
+
+/* Páginas legales */
+
+.legal {
+  max-width: calc(68ch + 2 * var(--margen));
+  margin: 0 auto;
+  padding: clamp(32px, 6vw, 80px) var(--margen) clamp(56px, 8vw, 112px);
+}
+.legal h1 { font-size: clamp(2rem, 5vw, var(--t4)); margin-bottom: 2rem; }
+.legal h2 { font-size: var(--t1); margin: 2.25rem 0 0.75rem; }
+.legal ul { padding-left: 1.2em; }
+.legal li { margin-bottom: 0.35em; }
+.marcador { background: var(--grava); padding: 0 0.3em; border-radius: 3px; font-weight: 600; }
+.volver { display: inline-block; margin-top: 2.5rem; font-weight: 600; }
+
+/* Tableta */
+
+@media (max-width: 960px) {
+  .menu { display: none; }
+  .portada-texto { grid-template-columns: 1fr; }
+  .lista-servicios { grid-template-columns: 1fr; }
+  .mundo-agua { grid-template-columns: 1fr; }
+  .mundo-agua-foto { min-height: 0; aspect-ratio: 3 / 2; order: -1; }
+  .conocenos { grid-template-columns: 1fr; }
+  .citas { grid-template-columns: 1fr; max-width: 62ch; }
+  .pasos { grid-template-columns: 1fr 1fr; row-gap: 2.5rem; }
+  .pasos::before { display: none; }
+}
+
+/* Móvil */
+
+@media (max-width: 760px) {
+  body { padding-bottom: 76px; }
+  .cabecera { padding-top: 14px; padding-bottom: 14px; }
+  .cabecera-llamar { display: none; }
+  .costura { height: clamp(240px, 46vh, 380px); }
+  .mitad figcaption { font-size: 1rem; }
+
+  .pasos { grid-template-columns: 1fr; gap: 0; }
+  .pasos::before { display: block; left: 27px; right: auto; top: 28px; bottom: 28px; border-top: 0; border-left: 2px solid var(--agua); }
+  .pasos li { padding: 0.6rem 0 2rem 76px; min-height: 56px; }
+
+  .mosaico {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, clamp(120px, 34vw, 220px));
+    grid-template-areas:
+      "a a"
+      "b c"
+      "b d"
+      "e e";
+  }
+
+  .acciones .boton { flex: 1 1 auto; }
+  .valores { font-size: var(--t1); }
+  .contacto-mitades { grid-template-columns: 1fr; }
+  .contacto-llamar { border-radius: 8px 8px 0 0; }
+
+  .barra-movil {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+    background: color-mix(in srgb, var(--cal) 92%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-top: 1px solid var(--grava);
+  }
+}
+
+@media (max-width: 400px) {
+  .marca-nombre { font-size: 1.15rem; }
+}
